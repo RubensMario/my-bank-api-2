@@ -20,6 +20,7 @@ const accountSchema = new Schema({
   balance: {
     type: Number,
     require: true,
+    // Poderia fazer validação ao invés do mínimo: validate(value) {if () ...}
     min: 0,
   },
 });
