@@ -1,0 +1,16 @@
+{
+  "name": "my-bak-api2",
+  "version": "1.0.0",
+  "description": "Trabalho prático módulo 4. API bancária simples com persistência de dados usando MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rubens",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.2"
+  },
+  "type": "module"
+}
