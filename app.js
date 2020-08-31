@@ -5,6 +5,8 @@
 // Obs: poderia criar handlers para as middlewares e funções separadas
 // para lidar com os erros específicos de cada rota
 
+// Comentário teste para uso de branches no git
+
 import mongoose from 'mongoose';
 import express from 'express';
 import myBankRouter from './routes/myBankRoutes.js';
