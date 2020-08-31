@@ -2,7 +2,7 @@
 // Dependências: Express (para tratar rotas)
 // e mongoose (conectar ao MongoDB e definir esquema dos dados)
 
-// Obs: poderia criar handlers para as funções middlewares e funções separadas
+// Obs: poderia criar handlers para as middlewares e funções separadas
 // para lidar com os erros específicos de cada rota
 
 import mongoose from 'mongoose';
