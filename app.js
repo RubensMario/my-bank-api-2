@@ -1,28 +1,36 @@
+// Aplicação desenvolvida para estudo (muitos comentários)
+
 // API bancária simples com persistência de dados usando MongoDB-Atlas
 // Dependências: Express (para tratar rotas)
-// e mongoose (conectar ao MongoDB e definir esquema dos dados)
+// mongoose (conectar ao MongoDB e definir esquema dos dados)
+// dotenv (para definir variáveis de ambiente)
 
-// Obs: poderia criar handlers para as middlewares e funções separadas
+// Melhorias futuras: criar handlers para as middlewares e funções separadas
 // para lidar com os erros específicos de cada rota
-
-// Comentário teste para uso de branches no git
 
 import mongoose from 'mongoose';
 import express from 'express';
 import myBankRouter from './routes/myBankRoutes.js';
+import dotenv from 'dotenv';
+// P/ em ambiente de teste, não usar arquivo env e definir variáveis de ambiente
+// via linha de comando na chamada do programa:
+// if (process.env.PRD !== 'true') require('dotenv').config();
+// A chamada seria
+// PRD=false node app.js ou
+// PRD=true USERDB=nomedousuario node app.js
+dotenv.config();
 
 const app = express();
 
 app.use(express.json());
 app.use(myBankRouter);
-app.listen(3000, () => console.log('API iniciada!'));
+app.listen(process.env.PORT, () => console.log('API iniciada!'));
 
 // Conectar API ao MongoDB pelo Mongoose
-
 (async () => {
   try {
     await mongoose.connect(
-      'mongodb+srv://Rubens:252719@cluster0.p4cph.mongodb.net/mybank?retryWrites=true&w=majority',
+      `mongodb+srv://${process.env.USERDB}:${process.env.PWDDB}@cluster0.p4cph.mongodb.net/mybank?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,

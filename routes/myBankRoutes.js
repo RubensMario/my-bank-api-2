@@ -1,6 +1,6 @@
-// Obs: a confusão entre variáveis em diferentes línguas
+// Obs: a existência de variáveis em diferentes línguas
 // se deve à nomeção de campos dos documentos
-// (i.e., propriedades dos objetos contas) criadas pelo prof
+// (i.e., propriedades dos objetos contas) definidos inicialmente no projeto
 
 import express from 'express';
 import { Account } from '../models/accountModel.js';
@@ -197,8 +197,6 @@ router.get('/lists/lowestbalances/:number', async (req, res, next) => {
       .limit(limitNumber)
       .sort({ balance: 1 });
 
-    // console.log(sortedAccounts);
-
     res.status(200).send(sortedAccounts);
   } catch (err) {
     next(err);
@@ -216,8 +214,6 @@ router.get('/lists/highestbalances/:number', async (req, res, next) => {
       .sort({ balance: -1 })
       .sort({ name: 1 });
 
-    // console.log(sortedAccounts);
-
     res.status(200).send(sortedAccounts);
   } catch (err) {
     next(err);
@@ -226,7 +222,6 @@ router.get('/lists/highestbalances/:number', async (req, res, next) => {
 
 // Transferir o cliente de maior saldo de cada agência p/ a agência private(99)
 // Retornar a lista dos clientes da agência private
-// Deveria ser um PUT (?)
 router.put('/private', async (_req, res, next) => {
   try {
     const topClientByBranch = await Account.aggregate([
