@@ -1,13 +1,3 @@
-// Aplicação desenvolvida para estudo (muitos comentários)
-
-// API bancária simples com persistência de dados usando MongoDB-Atlas
-// Dependências: Express (para tratar rotas)
-// mongoose (conectar ao MongoDB e definir esquema dos dados)
-// dotenv (para definir variáveis de ambiente)
-
-// Melhorias futuras: criar handlers para as middlewares e funções separadas
-// para lidar com os erros específicos de cada rota
-
 import mongoose from 'mongoose';
 import express from 'express';
 import myBankRouter from './routes/myBankRoutes.js';
